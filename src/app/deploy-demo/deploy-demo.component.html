@@ -1,0 +1,17 @@
+<app-load-spinner *ngIf="!demoNames" style="height:100%;">
+</app-load-spinner>
+<div *ngIf="demoNames" class="center-div demos-section">
+  <p class="header-title">Demo Contracts</p>
+  <div style="margin-left: 40px;" *ngIf="demoNames.length > 0; else nodemos">
+    <div class="demo-type" *ngFor="let demoName of demoNames">
+      <div class="demo-name">
+        <h4 style="margin-left: 10px;">{{demoName}}</h4>
+      </div>
+      <img src="https://www.ewallhost.com/images/pts/bulk-transfer.png" />
+      <button class="deploy-button" (click)="deploy(demoName)"[disabled]="inProgress" > Deploy </button>
+    </div>
+  </div>
+  <ng-template #nodemos>
+    <p style="font-style: italic">No demo contracts</p>
+  </ng-template>
+</div>

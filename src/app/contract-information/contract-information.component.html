@@ -1,0 +1,20 @@
+<div *ngIf="contractInstance" class="info-container">
+    <p *ngIf="contractMetadataService.getNameForContractType(contract)" class="header-title">
+        YOUR {{contractMetadataService.getNameForContractType(contract)}}
+    </p>
+    <div class="table-divider">
+        <div class="properties-div">
+            <div *ngFor="let property of contractInstance.Properties">
+                <div *ngIf="property.Value != null">
+                    <p class="title">
+                        {{property.DisplayName}}: {{property | contractInstanceProperty:contractInstance}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="percentage-div">
+            <p class="state">State: {{contractInstance.ContractState.DisplayName}}</p>
+            <app-donutchart [percentage]="contractInstance.ProcessPercentComplete"></app-donutchart>
+        </div>
+    </div>
+</div>

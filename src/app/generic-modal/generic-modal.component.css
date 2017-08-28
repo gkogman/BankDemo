@@ -1,0 +1,58 @@
+.generic-container {
+  width: 700px;
+}
+
+.main-title {
+  font-size: 15px;
+}
+
+.title {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.textbox {
+  width: 400px;
+  height: 30px;
+  font-size: 12px;
+  color: gray;
+}
+
+.cancel-button {
+  display: table-cell;
+  float: right;
+  background-color: #DE351F;
+  margin: 5px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  border: 0px;
+}
+
+.submit-button {
+  display: table-cell;
+  float: right;
+  background-color: #3AA712;
+  margin: 5px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  border: 0px;
+}
+
+.combobox-options {
+  width: 400px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.valid  {
+  border-left: 5px solid #42A948; /* green */
+  height: 15px;
+}
+
+.invalid {
+  border-left: 5px solid #a94442;
+    height: 15px;
+}

@@ -1,0 +1,42 @@
+.documents-container {
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 15px;
+  	box-shadow: 5px 5px 2px #c3c3c3;
+}
+
+.carousel{
+    display:table-cell; 
+    width:80%;
+}
+
+.main-title {
+    margin-left: 10px;
+    font-size:15px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.information {
+    font-size: 12px;
+}
+
+.upload-button {
+    float: right;
+    font-size: 12px;
+    vertical-align: center;
+    margin-left: 10px;
+    background: transparent;
+    color: #00A739;
+    border: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}

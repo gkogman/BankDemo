@@ -1,0 +1,15 @@
+<div class="topBar">
+    <div class="titleContainer" (click)="goHome()">
+        <div class="visible-sm visible-md visible-lg">
+            <span class="title">{{local.header1}}</span><span class="title" [ngStyle]="{'color' : local.headerColor}">{{local.header2}}</span>
+        </div>
+        <div class="visible-xs">
+            <span class="title-small">{{local.header1}}</span><span class="title-small" [ngStyle]="{'color' : local.headerColor}">{{local.header2}}</span>
+        </div>
+    </div>
+    <app-login style="width:30%">
+    </app-login>
+</div>
+<breadcrumb></breadcrumb>
+<router-outlet>
+</router-outlet>

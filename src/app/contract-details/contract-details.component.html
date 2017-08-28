@@ -1,0 +1,11 @@
+<app-load-spinner *ngIf="!contractInstance" style="height:100%;">
+</app-load-spinner>
+<div *ngIf="contractInstance" class="details-container center-div">
+    <app-contract-actions [currentUser]="currentUser" [contractInstance]="contractInstance" [contractActivities]="contractActivities" (creatingAction)="setCreatingAction($event)" [allUsers]="allUsers"></app-contract-actions>
+    <app-contacts [contractInstance]="contractInstance">
+    </app-contacts>
+    <app-contract-information [contract]="contract"  [contractInstance]="contractInstance"></app-contract-information>
+    <app-contract-progress [contractActivities]="contractActivities" [creatingAction]="creatingAction"></app-contract-progress>
+    <app-contract-documents [currentUser]="currentUser" [contractInstance]="contractInstance" [Documents]="documents" [contractInstanceId]="contractInstanceId" [creatingDocumentInput]="creatingDocument" (creatingDocument)="setCreatingDocument($event)"></app-contract-documents>
+    <app-contract-transactions  [contractInstance]="contractInstance"></app-contract-transactions>
+</div>

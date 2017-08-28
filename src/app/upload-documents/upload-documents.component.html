@@ -1,0 +1,10 @@
+<div class="document-upload-div">
+  <p class="header-title" style="color: gray; border-bottom: 1px solid darkgrey;">
+    UPLOAD DOCUMENTS
+  </p>
+  <app-file-selector (submitted)="filesSubmitted($event)"></app-file-selector>
+  <div style="float:right; display: table;">
+    <button class="cancel-button" (click)="cancel()">CANCEL</button>
+    <button class="submit-button" (click)="submit()">CREATE</button>
+  </div>
+</div>

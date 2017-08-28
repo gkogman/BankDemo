@@ -1,0 +1,57 @@
+<app-load-spinner *ngIf="isLoading" style="height:100%;">
+</app-load-spinner>
+<div *ngIf="!isLoading" style="width:75%; padding-bottom: 60px;" class="container center-div section">
+  <p style="margin: 20px;" class="hecader-title" [ngStyle]="{'direction' : local.direction}">{{local.assignUser}}</p>
+  <div style="float:right; clear:both" >
+    <button style="margin-top:10px;" class="plain-simple-button" (click)="createAssignment()">
+                {{local.createNewAssignment}}
+            <img src="../assets/add.png" height="20" width="20"> 
+    </button>
+  </div>
+  <div>
+    <div *ngIf="userAssignmentPage" class="table" style="clear:both; height:100%;"
+    [ngStyle]="{'direction' : local.direction }" >
+      <table class="table table-striped">
+        <tr>
+          <th width="5%">
+          </th>
+          <th [ngStyle]="{'text-align' : local.textAlign}">
+            {{local.user}}
+          </th>
+          <th [ngStyle]="{'text-align' : local.textAlign}">
+            {{local.contract}}
+          </th>
+          <th [ngStyle]="{'text-align' : local.textAlign}">
+            {{local.persona}}
+          </th>
+        </tr>
+        <tr *ngFor="let userAssignment of userAssignmentPage.UserAssignments">
+          <td>
+            <div class="dropdown">
+              <button class="button-dropdown" type="button" data-toggle="dropdown"><img src="../../assets/menu.png"/>
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a (click)="editAssignment(userAssignment)">{{local.edit}}</a></li>
+                <li><a (click)="deleteAssignment(userAssignment)">{{local.delete}}</a></li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            {{userAssignment.User.DisplayName}}
+          </td>
+          <td>
+            {{userAssignment.Contract.Description}}
+          </td>
+          <td>
+            {{userAssignment.Persona.DisplayName}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="text-center">
+      <ul *ngIf="userAssignmentPage" class="pagination">
+        <li [class.active]="pageNumber == currentPage - 1" *ngFor="let pageNumber of userAssignmentPage.PageCount | numberOfElementsToArray"><a (click)="goToPageNumber(pageNumber)">{{pageNumber + 1}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

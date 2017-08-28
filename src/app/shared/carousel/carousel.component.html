@@ -1,0 +1,20 @@
+<div *ngIf="Documents.length != 0" id="carousel-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li *ngFor="let i = index; let document of Documents;" data-target="#carousel-generic" (click)="select(i)" [class.active]="i == 0"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div *ngFor="let document of Documents" class="item" [ngClass]="{active: isActive(document.Url)}">
+            <img  [src]="document.Url" onerror="this.onerror=null;this.src='../../../assets/no-image.jpg';"  style=" height:100%; width:100%;"/>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>

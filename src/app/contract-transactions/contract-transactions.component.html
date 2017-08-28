@@ -1,0 +1,51 @@
+<div *ngIf="transactionBlocks.length >0" class="transactions-container">
+    <p class="header-title" style="margin-left:10px;">BLOCKCHAIN TRANSACTIONS</p>
+    <div style="background: #ffffff; border-top:#b3b3b3 solid 1px;">
+        <div style="padding:0px; overflow: scroll; overflow-x:auto">
+            <div style="display: table;">
+                <div style="width: 70%; padding-right: 10px; position: relative; display: table-cell; overflow: scroll; overflow-x: hidden; margin-right:10px;">
+                    <div style="width:100%; float: left; max-height: 568px;">
+                        <div *ngFor=" let transaction of transactionBlocks">
+                            <button class="master-div transaction-button" [class.selected]="isSelectedTransaction(transaction)" (click)="selectTransaction(transaction)">
+                                <div  *ngIf="transaction.Block.AddedDtTm" style="float:right; text-align:right; font-weight:bold;" >
+                                    <p>{{transaction.Block.AddedDtTm | UTCToLocal | date:'short'}}</p>
+                                </div>
+                                <div *ngIf="transaction.Block.BlockID"  class=" master-info-div">
+                                    <p class="title">BLOCK</p>
+                                    <p>{{transaction.Block.BlockID}}</p>
+                                </div>
+                                <div  *ngIf="transaction.Transaction.TransactionReceipt" class=" master-info-div">
+                                    <p class="title">TX HASH</p>
+                                    <p>{{transaction.Transaction.TransactionReceipt}}</p>
+                                </div>
+                            </button>
+                         </div>
+                    </div>
+                </div>
+                <div style="width: 20px; height: 20px; display: table-cell; vertical-align: top;">
+                    <div style="margin-right: -3px;" [style.marginTop.px]="getCalloutPosition()" id="triangle-left"> </div>
+                </div>
+                <div class="transaction-details-container">
+                    <div *ngIf="selectedTransaction">
+                        <div *ngIf="selectedTransaction.Block">
+                            <p class="title ">BLOCK</p>
+                            <p>{{selectedTransaction.Block.BlockID}}</p>
+                        </div>
+                        <div *ngIf="selectedTransaction.Transaction.FromAddress">
+                            <p class="title ">FROM ADDRESS</p>
+                            <p>{{selectedTransaction.Transaction.FromAddress}}</p>
+                        </div>
+                        <div *ngIf="selectedTransaction.Transaction.ToAddress">
+                            <p class="title ">TO ADDRESS</p>
+                            <p>{{selectedTransaction.Transaction.ToAddress}}</p>
+                        </div>
+                        <div *ngIf="selectedTransaction.Transaction.TransactionReceipt">
+                            <p class="title ">TX HASH</p>
+                            <p>{{selectedTransaction.Transaction.TransactionReceipt}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

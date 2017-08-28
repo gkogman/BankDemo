@@ -1,0 +1,9 @@
+.contacts-container {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 5px 5px 2px #c3c3c3;
+}

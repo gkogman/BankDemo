@@ -1,0 +1,7 @@
+<div class="documents-container center-div">
+    <p class="header-title">DOCUMENTS</p>
+    <app-message *ngIf="creatingDocumentInput" message="CREATING DOCUMENT"></app-message>
+    <div style="display:table; width:100%;">
+        <app-carousel [Documents]="Documents" class="carousel"></app-carousel>
+    </div>
+</div>

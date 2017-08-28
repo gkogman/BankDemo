@@ -1,0 +1,32 @@
+<div class="generic-container">
+  <p class="header-title" style="color: gray; border-bottom: 1px solid darkgrey;">
+    {{title}}
+  </p>
+  <div style="display:table; width:100%" [ngStyle]="{'direction' : local.direction}">
+    <div style="display:table-cell">
+      <p class="title">{{local.user}}</p>
+      <app-message style="float:left" *ngIf="isLoadingUsers" message="{{local.loadUsers}}"></app-message>
+      <select *ngIf="users" required class="combobox" [(ngModel)]="selectedUser" id="userSelect">
+        <option class="combobox" *ngFor="let user of users" [ngValue]="user">{{user.DisplayName}}</option>
+      </select>
+    </div>
+    <div style="display:table-cell">
+      <p class="title">{{local.contract}}</p>
+      <app-message style="float:left" *ngIf="isLoadingContracts" message="{{local.loadContract}}"></app-message>
+      <select *ngIf="contracts" class="form-control" required class="combobox" [(ngModel)]="selectedContract" (ngModelChange)="onChange($event)" id="contractSelect">
+        <option *ngFor="let contract of contracts" [ngValue]="contract">{{contract.Name}}</option>
+      </select>
+    </div>
+    <div style="display:table-cell">
+      <p class="title">{{local.persona}}</p>
+      <app-message style="float:left" *ngIf="isLoadingPersonas && selectedContract" message="{{local.loadPersona}}"></app-message>
+      <select *ngIf="personas || !selectedContract" [disabled]="!selectedContract" class="form-control" required class="combobox" [disabled]="!selectedContract" [(ngModel)]="selectedPersona" id="personaSelect">
+        <option *ngFor="let persona of personas" [ngValue]="persona">{{persona.DisplayName}}</option>
+      </select>
+    </div>
+  </div>
+  <div style="float:right; display: table; margin-top:20px;">
+    <button class="cancel-button" (click)="cancel()">{{local.cancel}}</button>
+    <button [class.disabled]="!selectedContract || !selectedUser || !selectedPersona" class="submit-button" (click)="submit()">{{local.submit}}</button>
+  </div>
+</div>

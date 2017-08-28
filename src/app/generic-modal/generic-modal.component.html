@@ -1,0 +1,86 @@
+<div class="generic-container">
+  <p class="header-title" style="color: gray; border-bottom: 1px solid darkgrey;">
+    {{title}}
+  </p>
+  <div *ngFor="let parameter of UIParameters; let i = index">
+    <div *ngIf="parameter.DataType != documentDataType && parameter.DataType != imageDataType">
+      <p class="title">
+        {{parameter.Name}}
+      </p>
+      <div *ngIf="!parameter.ContractActionParameter.Constraints">
+        <select class="combobox-options" *ngIf="parameter.DataType == userDataType && !parameter.ContractActionParameter.IsArray"
+          [(ngModel)]="parameter.Value">
+          <option *ngFor="let userOption of allUsers" [ngValue]="userOption.ChainAddress">{{userOption.DisplayName}}</option>
+        </select>
+        <div *ngIf="parameter.DataType == userDataType && parameter.ContractActionParameter.IsArray">
+          <app-mutiselect-messages [parameter]="parameter"></app-mutiselect-messages>
+          <div style="display:table">
+            <div style="display:table-cell" [class.invalid]="parameter.Selections.length < parameter.ContractActionParameter.MinArraySize"
+              [class.valid]="parameter.Selections.length >= parameter.ContractActionParameter.MinArraySize || !parameter.ContractActionParameter.MinArraySize"></div>
+            <ss-multiselect-dropdown class="combobox-options" [texts]="myTexts" [settings]="parameter.Settings" [options]="allUsers | arrayToMultiSelectOptionArray: userDataType"
+              [(ngModel)]="parameter.Selections"></ss-multiselect-dropdown>
+          </div>
+        </div>
+        <input class="textbox" type="number" *ngIf="parameter.DataType == 'uint'" name="{{parameter.Name}}" [(ngModel)]="parameter.Value">
+        <input class="textbox" type="text" *ngIf="parameter.DataType == 'string' || parameter.DataType == 'address'" name="{{parameter.Name}}"
+          [(ngModel)]="parameter.Value">
+        <input class="textbox" type="number" *ngIf="parameter.DataType == 'money'" name="{{parameter.Name}}" [(ngModel)]="parameter.Value">
+        <p-calendar *ngIf="parameter.DataType == 'datetime'" [(ngModel)]="parameter.Value" showTime="showTime" hourFormat="24" dateFormat="yy-mm-dd"></p-calendar>
+      </div>
+      <div *ngIf="parameter.ContractActionParameter.Constraints">
+        <div *ngIf="parameter.DataType == userDataType">
+          <select class="combobox-options" *ngIf="!parameter.ContractActionParameter.IsArray" [(ngModel)]="parameter.Value">
+            <option *ngFor="let constraint of parameter.ContractActionParameter.ConstraintsArray" [ngValue]="constraint">{{constraint.DisplayName}}</option>
+          </select>
+          <div *ngIf=" parameter.ContractActionParameter.IsArray">
+            <app-mutiselect-messages [parameter]="parameter"></app-mutiselect-messages>
+            <div style="display:table">
+              <div style="display:table-cell" [class.invalid]="parameter.Selections.length < parameter.ContractActionParameter.MinArraySize"
+                [class.valid]="parameter.Selections.length >= parameter.ContractActionParameter.MinArraySize || !parameter.ContractActionParameter.MinArraySize"></div>
+              <ss-multiselect-dropdown [settings]="parameter.Settings" [texts]="myTexts" [options]="parameter.ContractActionParameter.ConstraintsArray | arrayToMultiSelectOptionArray: userDataType"
+                [(ngModel)]="parameter.Selections"></ss-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="parameter.DataType == contractDataType">
+          <select class="combobox-options" *ngIf="!parameter.ContractActionParameter.IsArray" [(ngModel)]="parameter.Value">
+            <option *ngFor="let constraint of parameter.ContractActionParameter.ConstraintsArray" [ngValue]="constraint">{{constraint.Description}}</option>
+        </select>
+          <div *ngIf="parameter.ContractActionParameter.IsArray">
+            <app-mutiselect-messages [parameter]="parameter"></app-mutiselect-messages>
+            <div style="display:table">
+              <div style="display:table-cell" [class.invalid]="parameter.Selections.length < parameter.ContractActionParameter.MinArraySize"
+                [class.valid]="parameter.Selections.length >= parameter.ContractActionParameter.MinArraySize || !parameter.ContractActionParameter.MinArraySize"></div>
+              <ss-multiselect-dropdown [settings]="parameter.Settings" [texts]="myTexts" [options]="parameter.ContractActionParameter.ConstraintsArray | arrayToMultiSelectOptionArray: contractDataType"
+                [(ngModel)]="parameter.Selections"></ss-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="parameter.DataType != userDataType && parameter.DataType != contractDataType">
+          <select class="combobox-options" *ngIf="!parameter.ContractActionParameter.IsArray" [(ngModel)]="parameter.Value">
+            <option *ngFor="let constraint of parameter.ContractActionParameter.Constraints | commaSeparatedStringToArray" [ngValue]="constraint">{{constraint}}</option>
+         </select>
+          <div *ngIf="parameter.ContractActionParameter.IsArray">
+            <app-mutiselect-messages [parameter]="parameter"></app-mutiselect-messages>
+            <div style="display:table">
+              <div style="display:table-cell" [class.invalid]="parameter.Selections.length < parameter.ContractActionParameter.MinArraySize"
+                [class.valid]="parameter.Selections.length >= parameter.ContractActionParameter.MinArraySize || !parameter.ContractActionParameter.MinArraySize"></div>
+              <ss-multiselect-dropdown [settings]="parameter.Settings" [texts]="myTexts" [options]="parameter.ContractActionParameter.Constraints | commaSeparatedStringToArray | arrayToMultiSelectOptionArray"
+                [(ngModel)]="parameter.Selections"></ss-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div *ngIf="parameter.DataType == documentDataType || parameter.DataType == imageDataType">
+      <app-file-selector [index]="i" (submitted)="filesSubmitted($event, i)"></app-file-selector>
+    </div>
+  </div>
+  <div style="float:right; display: table;">
+    <button class="cancel-button" (click)="cancel()">{{local.cancel}}</button>
+    <button [class.disabled]="areAllArrayParametersValid()" class="submit-button" (click)="submit()">{{local.submit}}</button>
+  </div>
+</div>

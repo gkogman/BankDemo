@@ -1,0 +1,54 @@
+.thumbnail-img{
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px; 
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+}
+
+.thumbnail{
+  display: inline-block;
+  border: 0px;
+  margin: 0px;
+  position: relative;
+}
+
+.thumbnail-container{
+    margin: 0 auto;
+}
+
+.selected{
+    border: 3px solid limegreen;
+}
+
+.delete-img-button{
+    position: absolute; 
+    z-index: 3; 
+    top: 25px; 
+    left: 60px;
+    width:40px;
+}
+
+.upload-button {
+    background-color: transparent;
+    padding: 0px;
+    font-size: 15px;
+    height: 30px;
+    color: limegreen;
+    font-weight: normal;
+    border: 0px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

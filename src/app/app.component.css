@@ -1,0 +1,24 @@
+.topBar {
+    background-color:white;
+    height: 60px;
+}
+.title {
+    padding-top:5px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.title-small{
+   margin-top: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.titleContainer{
+    padding-left:10px;
+    padding-top:5px;
+    float:left;
+    cursor: pointer;
+}

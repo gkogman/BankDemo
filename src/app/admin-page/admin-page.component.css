@@ -1,0 +1,44 @@
+.adminpage-section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 15px;
+  box-shadow: 5px 5px 2px #c3c3c3;
+}
+
+.admin-button {
+  width: 300px;
+  height: 300px;
+  margin: 15px;
+  float: left;
+  text-align: center;
+  line-height: 110px;
+  margin-bottom: 18px;
+  font-weight: bold;
+  background-color: white;
+  font-size: 20px;
+  /*border-left: 20px solid #22947B;
+    border-right: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;    */
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.admin-button:hover {
+    background-color: #f2f2f2;
+}
+
+.title {
+    background:#555555; 
+    color: white;
+    opacity: 0.8;
+    position: absolute;    
+    height: 40px;
+    text-align: left;
+    width: 100%;
+}

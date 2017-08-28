@@ -1,0 +1,46 @@
+.button {
+    border: none;
+    padding-top: 10px;
+    color: black;
+    background: transparent;
+    text-align: right;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-admin {
+    border: none;
+    padding:0px;
+    color: #0BCD4D;
+    background: transparent;
+    text-align: right;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-admin-small {
+    border: none;
+    padding:0px;
+    color: #0BCD4D;
+    background: transparent;
+    text-align: right;
+    text-decoration: none;
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-small{
+    border: none;
+    color: black;
+    background: transparent;
+    text-align: right;
+    text-decoration: none;
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}

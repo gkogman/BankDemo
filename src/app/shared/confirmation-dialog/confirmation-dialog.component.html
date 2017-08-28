@@ -1,0 +1,12 @@
+<div class="generic-container">
+  <p class="header-title" style="color: gray; border-bottom: 1px solid darkgrey;">
+    {{title}}
+  </p>
+  <p style="color: gray;">
+    {{message}}
+  </p>
+  <div style="float:right; display: table; margin-top:20px;">
+    <button class="cancel-button" (click)="close()">CANCEL</button>
+    <button class="submit-button" (click)="accepted()">CONFIRM</button>
+  </div>
+</div>

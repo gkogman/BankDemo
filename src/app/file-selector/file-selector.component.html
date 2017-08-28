@@ -1,0 +1,12 @@
+<div class="thumbnail-container">
+  <div class="thumbnail" *ngFor="let photo of files">
+    <img class="thumbnail-img" [src]="photo && photo.Url" (click)="selectImage(photo)" [class.selected]="selectedImg == photo"/>
+    <img id="deleteBtn" *ngIf="selectedImg == photo" class="delete-img-button" (click)="selectImage(photo)" src="../assets/delete.png"/>
+  </div>
+</div>
+<label for="{{inputName}}" class="upload-button">
+  Upload Documents
+</label>
+<input id="{{inputName}}"  type="file" (click)="clearAlertMessage()" (change)="fileChange($event)" accept="*"
+  multiple>
+<!--<input type="button" class="upload-button" value="Upload Documents" onclick="document.getElementById(inputName).click();"/>-->

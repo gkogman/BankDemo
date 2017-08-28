@@ -1,0 +1,25 @@
+<div style="width:75%; padding-bottom: 60px;" class="center-div adminpage-section"
+[ngStyle]="{'direction' : local.direction}">
+  <p style="margin: 20px;" class="header-title">{{local.adminstrator}}</p>
+
+  <div style="margin-left: 40px;" class="admin-button" (click)="goToUserAssignment()">
+    <div class="title" [ngStyle]="{'text-align' : local.textAlign}" >
+      <h4 style="margin-left: 10px;">{{local.userAssignment}}</h4>
+    </div>
+    <img style="display: block; width: 70%;margin:50px;" src="../../assets/idcard.png"/>
+  </div>
+  <div style="margin-left: 40px;" class="admin-button" (click)="goToDeployDemoContract()">
+    <div class="title" [ngStyle]="{'text-align' : local.textAlign}">
+      <h4 style="margin-left: 10px;">{{local.demoContract}}</h4>
+    </div>
+    <img style="display: block; width: 70%;margin:50px;" src="../../assets/add.png"/>
+  </div>
+
+  <div style="margin-left: 40px;" class="admin-button" (click)="goToUploadCustomContract()">
+    <div class="title" [ngStyle]="{'text-align' : local.textAlign}">
+      <h4 style="margin-left: 10px;">{{local.customContract}}</h4>
+    </div>
+    <img style="display: block; width: 70%;margin:50px;" src="../../assets/upload-green.png"/>
+  </div>
+
+</div>

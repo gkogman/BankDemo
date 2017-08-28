@@ -1,0 +1,12 @@
+<div class="white-container" *ngIf="notifications.length > 0">
+    <p class="header-title">NOTIFICATIONS</p>
+    <div class="notification" *ngFor="let notification of notifications">
+        <button class="view-button" (click)="goToPage(notification.ContractInstanceID)">VIEW</button>
+        <p class="notification-name">
+           {{notification.HeaderText}}
+        </p>
+        <p class="notification-description">
+            Contract has been updated.
+        </p>
+    </div>
+</div>

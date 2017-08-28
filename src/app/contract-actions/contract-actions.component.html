@@ -1,0 +1,6 @@
+<div *ngIf="contractActions.length > 0 && !hideComponent" class="action-container center-div">
+    <p class="header-title">ACTIONS</p>
+    <div *ngFor="let action of contractActions">
+        <button class="action-button"  [class.disabled]="!currentUser && areActionsEnabled()" md-button (click)="openDialog(action,allUsers)">{{action.DisplayName}}</button>
+    </div>
+</div>

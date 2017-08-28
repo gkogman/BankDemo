@@ -1,0 +1,14 @@
+.notification-name {
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.notification-description {
+      margin-top:2px;
+}
+
+.notification-contact {
+    font-weight: bold;
+    margin-top: 2px;
+    color: #0BCD4D;
+}

@@ -1,0 +1,26 @@
+.document-upload-div{
+     width: 700px;
+}
+    
+
+
+.cancel-button {
+    display: table-cell;
+    float: right;
+    background-color: #DE351F;
+    margin: 5px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: 0px;
+}
+.submit-button {
+    display: table-cell;
+    float: right;
+    background-color: #3AA712;
+    margin: 5px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: 0px;
+}

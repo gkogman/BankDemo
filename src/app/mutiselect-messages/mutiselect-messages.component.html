@@ -1,0 +1,6 @@
+ <p style="font-style: italic; margin: 0px; margin-bottom: 2px;" *ngIf="parameter.ContractActionParameter.MinArraySize && parameter.ContractActionParameter.MaxArraySize">Must select {{parameter.ContractActionParameter.MinArraySize}}-{{parameter.ContractActionParameter.MaxArraySize}} items
+  </p>
+  <p style="font-style: italic; margin: 0px; margin-bottom: 2px;" *ngIf="!parameter.ContractActionParameter.MinArraySize && parameter.ContractActionParameter.MaxArraySize">Must select 0-{{parameter.ContractActionParameter.MaxArraySize}} items
+  </p>
+  <p style="font-style: italic; margin: 0px; margin-bottom: 2px;" *ngIf="parameter.ContractActionParameter.MinArraySize && !parameter.ContractActionParameter.MaxArraySize">Must select a minimum of {{parameter.ContractActionParameter.MinArraySize}} items
+  </p>

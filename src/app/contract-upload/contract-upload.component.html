@@ -1,0 +1,32 @@
+<div class="upload-container">
+<h1>Upload Contract</h1>
+
+<form [formGroup]="form" novalidat (submit)="upload()" (reset)="reset()" >
+
+<div class="input-file-container">
+
+  <input class="input-file" [formControlName]="contractInputID" type="file" [id]="contractInputID" (change)="fileChange($event)" accept=".sol"/>
+  <label class="input-file-trigger" [for]="contractInputID"> Select contract (.sol) </label>
+  <p class="file-return" *ngIf="files[contractInputID] != undefined">{{files[contractInputID].name}}</p>
+
+</div>
+
+<div class="input-file-container">
+  <input class="input-file" [formControlName]="configInputID" type="file" [id]="configInputID" (change)="fileChange($event)" accept=".json"/>
+  <label class="input-file-trigger" [for]="configInputID"> Select config (.json) </label>
+  <p class="file-return" *ngIf="files[configInputID] != undefined">{{files[configInputID].name}}</p>
+
+</div>
+
+<div class="input-file-container">
+  <input class="input-file" [formControlName]="uiConfigInputID" type="file" [id]="uiConfigInputID" (change)="fileChange($event)" accept=".json"/>
+  <label class="input-file-trigger" [for]="uiConfigInputID"> Select UI config (.json) </label>
+  <p class="file-return" *ngIf="files[uiConfigInputID] != undefined">{{files[uiConfigInputID].name}}</p>
+
+</div>
+
+  <input class="upload-button" type=submit [value]="submitBtnText" [disabled]="!isValid()">
+  <input class="reset-button" type=reset value="Reset"/>
+
+</form>
+</div>

@@ -1,0 +1,14 @@
+<div *ngIf="contact" style="display:table;">
+  <img style="border-radius:50px; width: 80px; margin-right: 10px; margin-bottom: 5px; display:table-cell" src="{{profileImageService.getProfileImageUrl(contact.User.EmailAddress)}}"
+    alt="Image not found" onerror="this.onerror=null;this.src='../../assets/user.png';" />
+  <div style="display:table-cell; vertical-align:top;">
+    <p class="notification-name">
+      {{contact.User.FirstName | uppercase }} {{contact.User.LastName | uppercase }}
+    </p>
+    <p class="notification-description">
+      {{contact.Persona.DisplayName}}
+    </p>
+    <a class="notification-contact" href="mailto:{{contact.User.EmailAddress}}">CONTACT</a>
+    <p  *ngIf="contact.User.MobileNbr && contact.User.MobileNbr !=''">{{contact.User.MobileNbr}}</p>
+  </div>
+</div>

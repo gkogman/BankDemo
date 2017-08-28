@@ -1,0 +1,57 @@
+<div *ngIf="contractActivities.length > 0" class="progress-container">
+    <p class="header-title">CONTRACT PROGRESS</p>
+    <app-message *ngIf="creatingAction" message="CREATING ACTION"></app-message>
+    <!--<div style="padding:0px; overflow-x: scroll; overflow-x:auto">  -->
+    <div *ngFor="let activity of contractActivities" class="activity-container" style="display:table;" [class.completed]="activity.CompletedOn != null">
+        <div style="display:table-cell; width: 80%; vertical-align:top ">
+            <p class="main-title">{{activity.ContractAction.DisplayName}}</p>
+            <div class="table-info">
+                <div style="display:table-cell;vertical-align:top;">
+                    <div *ngIf="activity.TransactionReceipt != null" class="activity-info">
+                        <p class=" title ">
+                            Transaction Receipt:
+                        </p>
+                        <p>
+                            {{activity.TransactionReceipt}}
+                        </p>
+                    </div>
+                    <div *ngIf="activity.StartedOn != null" class="activity-info">
+                        <p class="title ">
+                            Started on:
+                        </p>
+                        <p>
+                            {{activity.StartedOn | UTCToLocal | date:'short'}}
+                        </p>
+                    </div>
+                    <div *ngIf="activity.CreatedOn != null" class="activity-info">
+                        <p class="title ">
+                            Created on:
+                        </p>
+                        <p>
+                            {{activity.CreatedOn | UTCToLocal | date:'short'}}
+                        </p>
+                    </div>
+                    <div *ngIf="activity.CreatedBy.FirstName != null" class="activity-info">
+                        <p class="title ">
+                            Created by:
+                        </p>
+                        <p>
+                            {{activity.CreatedBy.FirstName}} {{activity.CreatedBy.LastName}}
+                        </p>
+                    </div>
+                    <div class="activity-info" *ngFor="let activityParameter of activity.InstaceActivityParameters ">
+                        <div *ngIf="activity.Value != null">
+                            <p class="title ">
+                                {{activityParameter.Parameter.Name}}
+                            </p>
+                            <p>
+                                {{activityParameter.Value}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-single-contact style="margin:10px;" [contact]="activity.CreatedBy"></app-single-contact>
+    </div>
+</div>

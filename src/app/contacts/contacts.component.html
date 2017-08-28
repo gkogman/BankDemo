@@ -1,0 +1,8 @@
+<div *ngIf="contractInstance && participants.length > 0" class="contacts-container center-div">
+    <p class="header-title">CONTACTS</p>
+    <div style="overflow-y: hidden; float: left; margin-left:20px; margin-bottom:10px;" *ngFor="let participant of participants">
+        <div>
+        <app-single-contact style="width:20%; margin-right:20px;" [contact]="participant"></app-single-contact>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+	@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+	* {
+	  font-size: 12px;
+	  font-family: 'Open Sans', sans-serif;
+	}
+
+	button:focus {
+	  outline: 0;
+	}
+
+	body {
+	  background: #E3E3E3;
+	}
+
+	.container {
+	  width: 90%;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+	td {
+	  width: 400px;
+	}
+
+	.plain-simple-button {
+	  margin-bottom: 10px;
+	  background: transparent;
+	  border: 0px;
+	  vertical-align: bottom;
+	}
+
+	.center-div {
+	  margin: 0 auto;
+	  width: 100px;
+	}
+
+	.header-title {
+	  margin-bottom: 10px;
+	  font-size: 18px;
+	  font-weight: bold;
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	  text-transform: uppercase;
+	}
+
+	.disabled {
+	  opacity: 0.65;
+	  cursor: not-allowed;
+	}
+
+	.breadcrumb {
+	  background-color: transparent;
+	}
+
+	.clickable-row {
+	  cursor: pointer;
+	}
+
+	.multiselect {
+	  width: 400px;
+	  background: white;
+	  border: 1px solid #a9a9a9;
+	  height: 30px;
+	  text-align: left;
+	}
+
+	.dropdown-menu {
+	  width: 400px;
+	}
+
+	.caret {
+	  float: right;
+	  margin-top: 5px;
+	}
